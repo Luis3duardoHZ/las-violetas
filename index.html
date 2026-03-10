@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Las Violetas | Clínica Dental Dra. Rosangele Herrera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Las Violetas</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#reservar">Reservar</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="#reservar" class="btn-nav">Reservar Cita</a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Clínica Dental de Confianza</p>
+      <h1 class="hero-title">Tu sonrisa merece<br /><span>lo mejor</span></h1>
+      <p class="hero-sub">Dra. Rosangele Herrera — Especialista en odontología estética y restauradora. Cuidamos tu salud bucal con calidez y tecnología de vanguardia.</p>
+      <div class="hero-cta">
+        <a href="#reservar" class="btn-primary">Reservar mi cita</a>
+        <a href="#servicios" class="btn-ghost">Ver servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>+500</strong><span>Pacientes felices</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>10+</strong><span>Años de experiencia</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>100%</strong><span>Compromiso contigo</span></div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-card floating">
+        <i class="fa-solid fa-tooth"></i>
+        <div>
+          <strong>Próxima disponibilidad</strong>
+          <span>Hoy · 3:00 PM</span>
+        </div>
+      </div>
+      <div class="hero-blob"></div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section servicios" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Lo que ofrecemos</p>
+        <h2>Nuestros Servicios</h2>
+        <p class="section-desc">Tratamientos diseñados para tu bienestar, con la más alta calidad y el trato que mereces.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-star-of-life"></i></div>
+          <h3>Blanqueamiento Dental</h3>
+          <p>Recupera el brillo natural de tu sonrisa con nuestro tratamiento de blanqueamiento profesional, seguro y efectivo.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+          <h3>Ortodoncia</h3>
+          <p>Alinea tu dentadura con brackets tradicionales o invisibles. Tratamientos para niños, jóvenes y adultos.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
+          <h3>Implantes Dentales</h3>
+          <p>Reemplaza dientes perdidos con implantes de titanio de alta durabilidad, con resultados estéticos naturales.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-shield-heart"></i></div>
+          <h3>Limpieza Profesional</h3>
+          <p>Mantén una higiene bucal óptima con nuestras limpiezas profundas, eliminando sarro y previniendo enfermedades.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>Odontología Estética</h3>
+          <p>Carillas, coronas y diseño de sonrisa para transformar por completo la apariencia de tu dentadura.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-syringe"></i></div>
+          <h3>Endodoncia</h3>
+          <p>Tratamiento de conducto para salvar dientes con daño severo, eliminando el dolor y preservando tu pieza dental.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section class="section precios" id="precios">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Transparencia total</p>
+        <h2>Nuestros Precios</h2>
+        <p class="section-desc">Calidad al alcance de todos. Contamos con planes de pago y financiamiento disponible.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Básico</h3>
+            <p>Cuidado esencial para tu salud bucal</p>
+          </div>
+          <div class="pricing-price">
+            <span class="price-from">desde</span>
+            <span class="price-amount">$25</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check"></i> Consulta y diagnóstico</li>
+            <li><i class="fa-solid fa-check"></i> Limpieza dental profesional</li>
+            <li><i class="fa-solid fa-check"></i> Radiografías básicas</li>
+            <li><i class="fa-solid fa-check"></i> Plan de tratamiento personalizado</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> Blanqueamiento</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> Tratamientos estéticos</li>
+          </ul>
+          <a href="#reservar" class="btn-pricing">Reservar</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="badge">Más popular</div>
+          <div class="pricing-header">
+            <h3>Estético</h3>
+            <p>Para una sonrisa radiante y perfecta</p>
+          </div>
+          <div class="pricing-price">
+            <span class="price-from">desde</span>
+            <span class="price-amount">$150</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check"></i> Todo lo del plan Básico</li>
+            <li><i class="fa-solid fa-check"></i> Blanqueamiento dental</li>
+            <li><i class="fa-solid fa-check"></i> Diseño de sonrisa</li>
+            <li><i class="fa-solid fa-check"></i> Carillas de porcelana</li>
+            <li><i class="fa-solid fa-check"></i> Seguimiento mensual</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> Implantes / Ortodoncia</li>
+          </ul>
+          <a href="#reservar" class="btn-pricing">Reservar</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Completo</h3>
+            <p>Tratamiento integral sin límites</p>
+          </div>
+          <div class="pricing-price">
+            <span class="price-from">desde</span>
+            <span class="price-amount">$400</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="fa-solid fa-check"></i> Todo lo del plan Estético</li>
+            <li><i class="fa-solid fa-check"></i> Ortodoncia (brackets / invisible)</li>
+            <li><i class="fa-solid fa-check"></i> Implantes dentales</li>
+            <li><i class="fa-solid fa-check"></i> Endodoncia incluida</li>
+            <li><i class="fa-solid fa-check"></i> Prioridad en agenda</li>
+            <li><i class="fa-solid fa-check"></i> Financiamiento disponible</li>
+          </ul>
+          <a href="#reservar" class="btn-pricing">Reservar</a>
+        </div>
+      </div>
+      <p class="pricing-note">* Los precios pueden variar según la complejidad del tratamiento. Solicita tu evaluación gratuita.</p>
+    </div>
+  </section>
+
+  <!-- RESERVAR -->
+  <section class="section reservar" id="reservar">
+    <div class="container">
+      <div class="reservar-inner">
+        <div class="reservar-info">
+          <p class="section-tag">Agenda tu cita</p>
+          <h2>Reserva en<br />minutos</h2>
+          <p>Completa el formulario y nos pondremos en contacto contigo para confirmar tu cita. ¡Es rápido y sin compromiso!</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <strong>Llámanos</strong>
+                <span>+58 414-000-0000</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fa-brands fa-whatsapp"></i>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>+58 414-000-0000</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <div>
+                <strong>Horario</strong>
+                <span>Lun – Vie: 8:00 AM – 6:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form class="reservar-form" id="reservaForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre completo</label>
+              <input type="text" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="tel" placeholder="+58 4XX-XXX-XXXX" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Correo electrónico</label>
+              <input type="email" placeholder="tu@correo.com" />
+            </div>
+            <div class="form-group">
+              <label>Servicio de interés</label>
+              <select required>
+                <option value="" disabled selected>Selecciona un servicio</option>
+                <option>Blanqueamiento Dental</option>
+                <option>Ortodoncia</option>
+                <option>Implantes Dentales</option>
+                <option>Limpieza Profesional</option>
+                <option>Odontología Estética</option>
+                <option>Endodoncia</option>
+                <option>Consulta General</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Fecha preferida</label>
+              <input type="date" required />
+            </div>
+            <div class="form-group">
+              <label>Hora preferida</label>
+              <select required>
+                <option value="" disabled selected>Selecciona un horario</option>
+                <option>08:00 AM</option>
+                <option>09:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>02:00 PM</option>
+                <option>03:00 PM</option>
+                <option>04:00 PM</option>
+                <option>05:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label>Mensaje adicional (opcional)</label>
+            <textarea placeholder="Cuéntanos brevemente tu situación o consulta..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full">
+            <i class="fa-solid fa-calendar-check"></i> Confirmar Reserva
+          </button>
+          <div class="form-success" id="formSuccess">
+            <i class="fa-solid fa-circle-check"></i>
+            <strong>¡Reserva enviada!</strong> Te contactaremos pronto para confirmar tu cita.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contacto">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">Las Violetas</span>
+          </div>
+          <p>Clínica dental de confianza, dedicada a transformar sonrisas con amor, profesionalismo y tecnología.</p>
+          <div class="social-links">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#servicios">Blanqueamiento</a></li>
+            <li><a href="#servicios">Ortodoncia</a></li>
+            <li><a href="#servicios">Implantes</a></li>
+            <li><a href="#servicios">Limpieza</a></li>
+            <li><a href="#servicios">Estética Dental</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><i class="fa-solid fa-location-dot"></i> Caracas, Venezuela</li>
+            <li><i class="fa-solid fa-phone"></i> +58 414-000-0000</li>
+            <li><i class="fa-solid fa-envelope"></i> lasvioletas@clinica.com</li>
+            <li><i class="fa-solid fa-clock"></i> Lun – Vie: 8AM – 6PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Clínica Las Violetas · Dra. Rosangele Herrera. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
