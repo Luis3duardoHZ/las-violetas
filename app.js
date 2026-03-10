@@ -5,23 +5,46 @@ window.addEventListener('scroll', () => {
 
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
+hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
   const success = document.getElementById('formSuccess');
-  success.classList.add('show');
-  e.target.querySelector('button[type="submit"]').disabled = true;
-  setTimeout(() => {
-    e.target.reset();
-    success.classList.remove('show');
-    e.target.querySelector('button[type="submit"]').disabled = false;
-  }, 5000);
+
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+
+  const data = {
+    nombre:   form.querySelector('input[name="nombre"]').value,
+    telefono: form.querySelector('input[name="telefono"]').value,
+    email:    form.querySelector('input[name="email"]').value,
+    servicio: form.querySelector('select[name="servicio"]').value,
+    fecha:    form.querySelector('input[name="fecha"]').value,
+    hora:     form.querySelector('select[name="hora"]').value,
+    mensaje:  form.querySelector('textarea[name="mensaje"]').value
+  };
+
+  try {
+    const res = await fetch('/api/reservar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error();
+    success.classList.add('show');
+    form.reset();
+    setTimeout(() => success.classList.remove('show'), 6000);
+  } catch {
+    alert('Hubo un error al enviar. Por favor llámanos directamente.');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-calendar-check"></i> Confirmar Reserva';
+  }
 }
 
 const observer = new IntersectionObserver((entries) => {
@@ -41,7 +64,4 @@ document.querySelectorAll('.service-card, .pricing-card').forEach(el => {
 });
 
 const dateInput = document.querySelector('input[type="date"]');
-if (dateInput) {
-  const today = new Date().toISOString().split('T')[0];
-  dateInput.setAttribute('min', today);
-}
+if (dateInput) dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
