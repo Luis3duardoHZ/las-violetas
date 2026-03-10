@@ -1,5 +1,3 @@
-const { createClient } = require('@supabase/supabase-js');
-
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'PATCH, OPTIONS');
@@ -11,20 +9,34 @@ module.exports = async function handler(req, res) {
     return res.status(401).json({ error: 'No autorizado' });
   }
 
-  const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
   const { id, estado } = req.body;
-
   if (!id || !estado) return res.status(400).json({ error: 'Faltan datos' });
   if (!['pendiente', 'confirmada', 'cancelada'].includes(estado)) {
     return res.status(400).json({ error: 'Estado inválido' });
   }
 
-  const { error } = await supabase.from('reservas').update({ estado }).eq('id', id);
-
-  if (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Error al actualizar' });
+  try {
+    const r = await fetch(
+      `${process.env.SUPABASE_URL}/rest/v1/reservas?id=eq.${id}`,
+      {
+        method: 'PATCH',
+        headers: {
+          apikey: process.env.SUPABASE_KEY,
+          Authorization: `Bearer ${process.env.SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal'
+        },
+        body: JSON.stringify({ estado })
+      }
+    );
+    if (!r.ok) {
+      const data = await r.json();
+      console.error('Supabase error:', data);
+      return res.status(500).json({ error: 'Error al actualizar', detail: data });
+    }
+    return res.status(200).json({ success: true });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ error: e.message });
   }
-
-  return res.status(200).json({ success: true });
 };
