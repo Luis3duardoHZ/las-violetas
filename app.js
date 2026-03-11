@@ -1,8 +1,10 @@
+// Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 40);
 });
 
+// Hamburger menu
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
@@ -10,11 +12,11 @@ navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
+// Form submit — calls backend
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button[type="submit"]');
-  const success = document.getElementById('formSuccess');
 
   btn.disabled = true;
   btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
@@ -35,18 +37,31 @@ async function handleSubmit(e) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
-    if (!res.ok) throw new Error();
-    success.classList.add('show');
+
+    if (!res.ok) throw new Error('Error en el servidor');
+
     form.reset();
-    setTimeout(() => success.classList.remove('show'), 6000);
+    showToast('¡Reserva enviada! Te contactaremos pronto para confirmar tu cita.', 'success');
   } catch {
-    alert('Hubo un error al enviar. Por favor llámanos directamente.');
+    showToast('Hubo un error al enviar. Por favor llámanos directamente al +58 414-000-0000.', 'error');
   } finally {
     btn.disabled = false;
     btn.innerHTML = '<i class="fa-solid fa-calendar-check"></i> Confirmar Reserva';
   }
 }
 
+function showToast(msg, tipo = 'success') {
+  const toast = document.getElementById('toastMain');
+  const icon = document.getElementById('toastMainIcon');
+  document.getElementById('toastMainMsg').textContent = msg;
+  icon.className = tipo === 'success'
+    ? 'fa-solid fa-circle-check'
+    : 'fa-solid fa-circle-exclamation';
+  toast.className = `toast-main ${tipo} show`;
+  setTimeout(() => toast.classList.remove('show'), 5000);
+}
+
+// Fade-in on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -63,5 +78,6 @@ document.querySelectorAll('.service-card, .pricing-card').forEach(el => {
   observer.observe(el);
 });
 
+// Min date
 const dateInput = document.querySelector('input[type="date"]');
 if (dateInput) dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
